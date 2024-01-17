@@ -1,0 +1,10 @@
+<div *ngIf="selectedVehicle">
+    <h2>{{ selectedVehicle.name }}</h2>
+    <p>Розміри: {{ selectedVehicle.dimensions }}</p>
+    <p>Вага: {{ selectedVehicle.weight }}</p>
+    <!-- Інші властивості транспортного засобу -->
+</div>
+  
+<button (click)="showCar()">Автомобіль</button>
+<button (click)="showPlane()">Літак</button>
+<button (click)="showShip()">Корабель</button>

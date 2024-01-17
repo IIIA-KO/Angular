@@ -1,0 +1,40 @@
+<div
+  class="resizable-block"
+  [style.width.px]="width"
+  [style.height.px]="height"
+  [style.transform]="'rotate(' + rotation + 'deg)'"
+>
+</div>
+
+<div>
+    <label for="width-slider">Ширина:</label>
+    <input
+      id="width-slider"
+      type="range"
+      min="0"
+      [(ngModel)]="width"
+      max="500"
+      (input)="onWidthChange(width)"
+    />
+  
+    <label for="height-slider">Висота:</label>
+    <input
+      id="height-slider"
+      type="range"
+      min="0"
+      [(ngModel)]="height"
+      max="500"
+      (input)="onHeightChange(height)"
+    />
+  
+    <label for="rotation-slider">Поворот:</label>
+    <input
+      id="rotation-slider"
+      type="range"
+      min="0"
+      [(ngModel)]="rotation"
+      max="360"
+    
+      (input)="onRotationChange(rotation)"
+    />
+  </div>

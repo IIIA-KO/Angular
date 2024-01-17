@@ -1,0 +1,50 @@
+<form (ngSubmit)="submitForm(registrationForm)" #registrationForm="ngForm">
+    <div>
+      <label>
+        <input type="checkbox" name="termsAndConditions" [(ngModel)]="formData['termsAndConditions']" required>
+        I accept the terms and conditions
+      </label>
+      <div *ngIf="registrationForm.controls['termsAndConditions']?.errors?.['required'] && registrationForm.submitted">
+        Please accept the terms and conditions.
+      </div>
+    </div>
+  
+    <div>
+        <label>
+          Email:
+          <input type="email" name="email" [(ngModel)]="formData['email']" required>
+        </label>
+        <div *ngIf="registrationForm.controls['email']?.errors?.['required'] && registrationForm.submitted">
+          Email is required.
+        </div>
+        <div *ngIf="registrationForm.controls['email']?.errors?.['pattern'] && registrationForm.submitted">
+          Please enter a valid email.
+        </div>
+    </div>
+      
+  
+    <div>
+      Gender:
+      <label>
+        <input type="radio" name="gender" value="male" [(ngModel)]="formData['gender']" required>
+        Male
+      </label>
+      <label>
+        <input type="radio" name="gender" value="female" [(ngModel)]="formData['gender']" required>
+        Female
+      </label>
+      <div *ngIf="registrationForm.controls['gender']?.errors?.['required'] && registrationForm.submitted">
+        Gender is required.
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="!registrationForm.valid">Submit</button>
+    <button type="reset" (click)="resetForm(registrationForm)">Reset</button>
+  </form>
+  
+  <div *ngIf="submitted">
+    <h2>Submitted Data:</h2>
+    <p>Email: {{ formData['email'] }}</p>
+    <p>Gender: {{ formData['gender'] }}</p>
+  </div>
+  

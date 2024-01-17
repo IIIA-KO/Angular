@@ -1,0 +1,12 @@
+<p>Список товарів</p>
+<ul>
+    <li *ngFor="let product of products">
+        {{ product.name }}
+        <span *ngIf="product.discount; else noDiscount">
+            <del>{{ product.price }}</del> {{ product.price - product.discount }}
+        </span>
+        <ng-template #noDiscount>
+            {{ product.price }}
+        </ng-template>
+    </li>
+</ul>

@@ -1,0 +1,38 @@
+<div [ngSwitch]="selectedCategory">
+    <button (click)="selectCategory('Електроніка')">Електроніка</button>
+    <button (click)="selectCategory('Одяг')">Одяг</button>
+    <button (click)="selectCategory('Аксесуари')">Аксесуари</button>
+    
+    <div *ngSwitchCase="'Електроніка'">
+        <h3>Електроніка</h3>
+        <ul>
+          <ng-container *ngFor="let product of products">
+            <li *ngIf="product.category === 'Електроніка'">
+              {{ product.name }} - {{ product.price }}
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+      
+      <div *ngSwitchCase="'Одяг'">
+        <h3>Одяг</h3>
+        <ul>
+          <ng-container *ngFor="let product of products">
+            <li *ngIf="product.category === 'Одяг'">
+              {{ product.name }} - {{ product.price }}
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+      
+      <div *ngSwitchCase="'Аксесуари'">
+        <h3>Аксесуари</h3>
+        <ul>
+          <ng-container *ngFor="let product of products">
+            <li *ngIf="product.category === 'Аксесуари'">
+              {{ product.name }} - {{ product.price }}
+            </li>
+          </ng-container>
+        </ul>
+      </div>      
+</div>

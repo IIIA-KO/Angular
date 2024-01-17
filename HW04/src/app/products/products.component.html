@@ -1,0 +1,5 @@
+<div>
+    <input [(ngModel)]="itemName" placeholder="Назва товару">
+    <input [(ngModel)]="itemPrice" type="number" placeholder="Ціна товару">
+    <button (click)="addToCart()" [disabled]="!isValidInput()">Додати до кошика</button>
+</div>

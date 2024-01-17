@@ -1,0 +1,15 @@
+<div>
+    <!-- Відображення кількості обраних товарів та їхньої вартості -->
+    <span>{{ getCartItemsCount() }} товарів - {{ getTotalPrice() }} грн</span>
+
+    <!-- Відображення обраних товарів у кошику -->
+    <ul>
+      <li *ngFor="let item of getCartItems()">
+        {{ item.name }} - {{ item.price }} грн (x{{ item.quantity }})
+        <button (click)="removeFromCart(item.id)">Видалити</button>
+      </li>
+    </ul>
+
+    <!-- Кнопка очищення кошика -->
+    <button (click)="clearCart()">Очистити кошик</button>
+  </div>

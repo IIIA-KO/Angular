@@ -1,0 +1,11 @@
+<select (change)="onSelectCountry($event)">
+    <option value="">Select a country</option>
+    <option *ngFor="let country of countries" [value]="country.name.common">{{ country.name.common }}</option>
+  </select>
+  
+  <div *ngIf="selectedCountry">
+    <h2>{{ selectedCountry.name.common }}</h2>
+    <p>Capital: {{ selectedCountry.capital }}</p>
+    <img [src]="selectedCountry.flags.png" alt="Flag" width="200">
+    <p>Languages: {{ selectedCountry.languages | json }}</p>
+  </div>  
